@@ -25,7 +25,7 @@ exports.execute = async (req, res) => {
           SubscriberKey: data.inArguments[0].contactKey,
         },
         values: {
-          TimeZone: data.inArguments[0].TimezoneOptions,
+          TimeZone: data.inArguments[0].TimeZoneOptions,
           StartTime: data.inArguments[0].BlackoutStartTime,
           EndTime: data.inArguments[0].BlackoutFinishTime
         },
