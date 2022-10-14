@@ -23,10 +23,16 @@ block content
                 each timeZoneOption in timeZoneOptions
                   option(value=timeZoneOption)= timeZoneOption
               
-          label.slds-form-element__label.slds-p-top_medium(for='Text')
+          label.slds-form-element__label.slds-p-top_medium(for='BlackoutStartTime')
             abbr.slds-required(title='required')
-            | Text *
+            | Select Blackout Start Time *
           .slds-form-element__control
-            input#Text.slds-input.js-activity-setting(required='', placeholder='', name='text')
+            input#BlackoutStartTime.slds-input.js-activity-setting(required='', placeholder='', name='text', type="time")
+
+          label.slds-form-element__label.slds-p-top_medium(for='BlackoutFinishTime')
+            abbr.slds-required(title='required')
+            | Select Blackout Completed Time *
+          .slds-form-element__control
+            input#BlackoutFinishTime.slds-input.js-activity-setting(required='', placeholder='', name='text', type="time")
 
     footer.slds-card__footer
