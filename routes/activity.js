@@ -2,6 +2,7 @@ const { v1: Uuidv1 } = require('uuid');
 const JWT = require('../utils/jwtDecoder');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
+const dateTime = require('../utils/dateConvert');
 
 /**
  * The Journey Builder calls this method for each contact processed by the journey.
@@ -9,9 +10,12 @@ const logger = require('../utils/logger');
  * @param res
  * @returns {Promise<void>}
  */
+
 exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);
+  
+  dateTime.convertDateTimeToLocale;
 
   logger.info(data);
 
