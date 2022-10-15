@@ -6,7 +6,7 @@ const { DateTime } = require("luxon");
 /*
 * @param {string} Locale - timezone set in journey activity config
 */
-const convertDateTimeToLocale = (locale, start, end) => {
+const getStartEndDateTime = (locale, start, end) => {
 
     let startDay = DateTime.local().setZone(locale).toFormat("dd"),
         startHour = start.split(":")[0],
@@ -48,36 +48,32 @@ const convertDateTimeToLocale = (locale, start, end) => {
 
     console.log('Start DateTime: ', startDtObj.toISO());
     console.log('End DateTime: ', endDtObj.toISO());
-    
-    /*let startHour = start.split(":")[0],
-        startMinute = start.split(":")[1],
-        endHour = end.split(":")[0],
-        endMinute = end.split(":")[1];
 
-        console.log(startHour, startMinute, endHour, endMinute);   
-    
+    checkDateBetweenTime(locale, startDtObj,endDtObj)
 
-    let startDateUTC = new Date(),
-        startDateTimeUTC = startDateUTC.setHours(startHour, startMinute, 0, 0),
-        endDateUTC = new Date(),
-        endDateTimeUTC = endDateUTC.setHours(endHour, endMinute, 0, 0);
-
-        options = {
-            timeZone: locale
-        }
-
-        //get converted date
-        convertedStartDateTime = startDateTimeUTC.toLocaleDateString("en-US", options)
-        convertedEndDateTime = endDateTimeUTC.toLocaleDateString("en-US", options)
-        
-        console.log(convertedStartDateTime)
-        console.log(convertedEndDateTime)
-*/
-        //return convertedDateTime
 }
 
+//function that checks to see if the current local date is between startDtObj and endDtObj
+
+/*
+* @param {string} startDtObj - start date object in configured timezone
+* @param {string} endDtObj - end date object in configured timezone
+*/
+const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
+    let currentDtObj = DateTime.local().setZone(locale);
+    if(currentDtObj >= startDtObj && currentDtObj <= endDtObj){
+        console.log('current date is between start and end time')
+        return true
+    } else {
+        console.log('current date is not between start and end time')
+        return false
+    }
+}
+
+
 module.exports = {
-    convertDateTimeToLocale
+    getStartEndDateTime,
+    checkDateBetweenTime
 }
 
 //function to check if current date in converted timezone is between two timestamps
