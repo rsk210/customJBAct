@@ -8,20 +8,20 @@ const { DateTime } = require("luxon");
 */
 const convertDateTimeToLocale = (locale, start, end) => {
 
-    let startDay = new Date().getDate(),
+    let startDay = DateTime.local().setZone(locale).toFormat("dd"),
         startHour = start.split(":")[0],
         startMinute = start.split(":")[1],
 
         endHour = end.split(":")[0],
         endMinute = end.split(":")[1];
 
-        if(endHour < startHour || (endHour == startHour && endMinute < startMinute)){
+        if(endHour < startHour || (endHour == startHour && endMinute <= startMinute)){
             //if endhour is less than start hour, set date as the next day
             //if endhour is equal to start hour and end minute is less than start minute, set date as the next day
-            endDay = (new Date().getDate()) + 1
+            endDay = startDay + 1
             console.log('next Date: ', endDay)
         } else {
-            endDay = new Date().getDate()
+            endDay = DateTime.local().setZone(locale).toFormat("dd")
         }
 
         
