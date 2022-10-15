@@ -15,7 +15,7 @@ exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);
   
-  dateTime.convertDateTimeToLocale(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime);
+  dateTime.convertDateTimeToLocale(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime);
 
   logger.info(data);
 
