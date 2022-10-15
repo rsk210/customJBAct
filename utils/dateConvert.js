@@ -8,15 +8,46 @@ const { DateTime } = require("luxon");
 */
 const convertDateTimeToLocale = (locale, start, end) => {
 
-    let dtObj = DateTime.fromObject({
-        hour: start.split(":")[0],
-        minute: start.split(":")[1]
+    let startDay = new Date().getDate(),
+        startHour = start.split(":")[0],
+        startMinute = start.split(":")[1],
+
+        endHour = end.split(":")[0],
+        endMinute = end.split(":")[1];
+
+        if(endHour < startHour || (endHour == startHour && endMinute < startMinute)){
+            //if endhour is less than start hour, set date as the next day
+            //if endhour is equal to start hour and end minute is less than start minute, set date as the next day
+            endDay = (new Date().getDate()) + 1
+            console.log('next Date: ', endDay)
+        } else {
+            endDay = new Date().getDate()
+        }
+
+        
+
+    let startDtObj = DateTime.fromObject({
+        day: startDay,
+        hour: startHour,
+        minute: startMinute
     },
     {
         zone: locale
     })
 
-    console.log(dtObj.toISO());
+    let endDtObj = DateTime.fromObject({
+        day: endDay,
+        hour: endHour,
+        minute: endMinute
+    },
+    {
+        zone: locale
+    })
+
+
+
+    console.log('Start DateTime: ', startDtObj.toISO());
+    console.log('End DateTime: ', endDtObj.toISO());
     
     /*let startHour = start.split(":")[0],
         startMinute = start.split(":")[1],
