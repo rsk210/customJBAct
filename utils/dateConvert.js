@@ -16,7 +16,7 @@ const convertDateTimeToLocale = (locale, start, end) => {
         zone: locale
     })
 
-    console.log(dtObj);
+    console.log(dtObj.toISO());
     
     /*let startHour = start.split(":")[0],
         startMinute = start.split(":")[1],
