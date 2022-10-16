@@ -15,7 +15,7 @@ exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);
   
-  let dates = dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime),
+  let dates = dateTime.getNextApplicableDate(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime),
       startDate = dates.startDtObj.toISO(),
       endDate = dates.endDtObj.toISO(),
       nextDate = dates.nextDtObj.toISO();
