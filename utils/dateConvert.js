@@ -88,8 +88,7 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
 
 
 module.exports = {
-    getStartEndDateTime,
-    checkDateBetweenTime
+    getStartEndDateTime
 }
 
 //function to check if current date in converted timezone is between two timestamps
