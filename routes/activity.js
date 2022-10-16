@@ -16,7 +16,8 @@ exports.execute = async (req, res) => {
   const data = JWT(req.body);
   
   let nextDtObj = dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime);
-  logger.info(nextDtObj);
+
+  console.log('Next Date Obj: ', nextDtObj);
   logger.info(data);
 
   try {
