@@ -20,7 +20,7 @@ exports.execute = async (req, res) => {
       endDate = dates.endDtObj.toISO(),
       nextDate = dates.nextDtObj.toISO();
 
-  console.log('Start Date Objs: ', startDate, '; End Date Objs',  endDate);
+  console.log('Start Date Objs: ', startDate, '; End Date Objs',  endDate, '; Next Date Objs', nextDate);
 
   logger.info(data);
 
