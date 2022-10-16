@@ -17,7 +17,7 @@ exports.execute = async (req, res) => {
   
   dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime);
 
-  console.log('Next Date Obj: ', dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime););
+  console.log('Next Date Obj: ', dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime));
   logger.info(data);
 
   try {
