@@ -64,7 +64,7 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
         console.log('current date is between start and end time')
 
         //set nextDtObj as endDtObj + 1 hour
-        let nextDtObj = endDtObj.plus({hours: 1})
+        let nextDtObj = endDtObj.plus({minutes: 1})
         console.log('Next DateTime: ', nextDtObj.toISO())
 
         return nextDtObj
@@ -72,7 +72,7 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
         console.log('current date is not between start and end time')
         
         //set nextDtObj as from now
-        let nextDtObj = currentDtObj.plus({hours: 1})
+        let nextDtObj = currentDtObj.plus({minutes: 1})
         console.log('Next DateTime: ', nextDtObj.toISO())
 
         return nextDtObj
