@@ -15,9 +15,12 @@ exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);
   
-  dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime);
+  let dates = dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime),
+      startDate = dates.startDtObj.toISO(),
+      endDate = dates.endDtObj.toISO()
 
-  console.log('Next Date Obj: ', dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime));
+  console.log('Start Date Objs: ', startDate, '; End Date Objs',  endDate);
+  
   logger.info(data);
 
   try {

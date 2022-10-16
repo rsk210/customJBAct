@@ -42,12 +42,14 @@ const getStartEndDateTime = (locale, start, end) => {
         zone: locale
     })
 
+    return { startDtObj, endDtObj };
+
 
 
     //console.log('Start DateTime: ', startDtObj.toISO());
     //console.log('End DateTime: ', endDtObj.toISO());
 
-    checkDateBetweenTime(locale, startDtObj,endDtObj)
+    //checkDateBetweenTime(locale, startDtObj,endDtObj)
 
 }
 
@@ -67,7 +69,7 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
         let nextDtObj = endDtObj.plus({minutes: 1})
         //console.log('Next DateTime: ', nextDtObj.toISO())
 
-        return nextDtObj
+        return { nextDtObj }
     } else {
         //console.log('current date is not between start and end time')
         
@@ -75,7 +77,7 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
         let nextDtObj = currentDtObj.plus({minutes: 1})
         //console.log('Next DateTime: ', nextDtObj.toISO())
 
-        return nextDtObj
+        return { nextDtObj }
     }
 }
 
