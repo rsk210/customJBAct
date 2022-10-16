@@ -3,7 +3,7 @@
   "metaData": {
     "icon": "images/icon.png"
   },
-  "type": "REST",
+  "type": "Wait",
   "lang": {
     "en-US": {
       "description": "Custom Activity"
