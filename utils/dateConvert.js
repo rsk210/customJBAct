@@ -42,7 +42,32 @@ const getStartEndDateTime = (locale, start, end) => {
         zone: locale
     })
 
-    return { startDtObj, endDtObj };
+
+const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
+        let currentDtObj = DateTime.local().setZone(locale);
+        if(currentDtObj >= startDtObj && currentDtObj <= endDtObj){
+            //console.log('current date is between start and end time')
+    
+            //set nextDtObj as endDtObj + 1 hour
+            let nextDtObj = endDtObj.plus({minutes: 1})
+            //console.log('Next DateTime: ', nextDtObj.toISO())
+    
+            return nextDtObj
+        } else {
+            //console.log('current date is not between start and end time')
+            
+            //set nextDtObj as from now
+            let nextDtObj = currentDtObj.plus({minutes: 1})
+            //console.log('Next DateTime: ', nextDtObj.toISO())
+    
+            return nextDtObj
+        }
+    }
+
+    let nextDtObj = checkDateBetweenTime
+    console.log('Next Dt Object: ', nextDtObj.toISO());
+
+    return { startDtObj, endDtObj, nextDtObj};
 
 
 
@@ -60,26 +85,6 @@ const getStartEndDateTime = (locale, start, end) => {
 * @param {string} startDtObj - start date object in configured timezone
 * @param {string} endDtObj - end date object in configured timezone
 */
-const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
-    let currentDtObj = DateTime.local().setZone(locale);
-    if(currentDtObj >= startDtObj && currentDtObj <= endDtObj){
-        //console.log('current date is between start and end time')
-
-        //set nextDtObj as endDtObj + 1 hour
-        let nextDtObj = endDtObj.plus({minutes: 1})
-        //console.log('Next DateTime: ', nextDtObj.toISO())
-
-        return { nextDtObj }
-    } else {
-        //console.log('current date is not between start and end time')
-        
-        //set nextDtObj as from now
-        let nextDtObj = currentDtObj.plus({minutes: 1})
-        //console.log('Next DateTime: ', nextDtObj.toISO())
-
-        return { nextDtObj }
-    }
-}
 
 
 module.exports = {
