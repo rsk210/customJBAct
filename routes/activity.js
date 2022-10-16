@@ -15,7 +15,7 @@ exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);
   
-  dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime);
+  let nextDtObj = dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime);
 
   logger.info(data);
 
@@ -31,7 +31,8 @@ exports.execute = async (req, res) => {
         values: {
           TimeZone: data.inArguments[0].TimeZoneOptions,
           StartTime: data.inArguments[0].BlackoutStartTime,
-          EndTime: data.inArguments[0].BlackoutFinishTime
+          EndTime: data.inArguments[0].BlackoutFinishTime,
+          NextDate: nextDtObj
         },
       },
     ]);
