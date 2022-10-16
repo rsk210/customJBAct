@@ -15,7 +15,11 @@ exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);
   
-  let dates = dateTime.getNextTriggerDate(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime),
+  let configLocale = data.inArguments[0].TimeZoneOptions,
+  configStartTime = data.inArguments[0].BlackoutStartTime,
+  configFinishTime = data.inArguments[0].BlackoutFinishTime;
+  
+  let dates = dateTime.getNextTriggerDate(configLocale,configStartTime,configFinishTime),
       startDate = dates.startDtObj.toISO(),
       endDate = dates.endDtObj.toISO(),
       nextDate = dates.nextDtObj.toISO();
@@ -34,9 +38,9 @@ exports.execute = async (req, res) => {
           SubscriberKey: data.inArguments[0].contactKey,
         },
         values: {
-          TimeZone: data.inArguments[0].TimeZoneOptions,
-          StartTime: data.inArguments[0].BlackoutStartTime,
-          EndTime: data.inArguments[0].BlackoutFinishTime,
+          TimeZone: configLocale,
+          StartTime: configStartTime,
+          EndTime: configFinishTime,
           NextDate: nextDate
         },
       },
