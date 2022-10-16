@@ -18,9 +18,10 @@ const getStartEndDateTime = (locale, start, end) => {
         if(endHour < startHour || (endHour == startHour && endMinute <= startMinute)){
             //if endhour is less than start hour, set date as the next day
             //if endhour is equal to start hour and end minute is less than start minute, set date as the next day
+            console.log('end time is less than start time, setting end date as the next day')
             endDay = DateTime.local().setZone(locale).plus({days: 1}).toFormat("dd")
-            //console.log('next Date: ', endDay)
         } else {
+            console.log('end time is greater than start time, setting end date as the same day')
             endDay = startDay
         }
 
