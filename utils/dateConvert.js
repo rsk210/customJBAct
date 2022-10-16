@@ -3,6 +3,7 @@ const { DateTime } = require("luxon"); //require luxon library
 //Function takes the locale, start and end time
 //configured within Journey Builder and builds
 //2 date objects: start date, end date
+//runs inner query that returns next trigger date
 
 /*
 * @param {string} locale - Locale selected through Journey Builder
