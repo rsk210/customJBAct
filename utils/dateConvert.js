@@ -19,7 +19,7 @@ const getStartEndDateTime = (locale, start, end) => {
             //if endhour is less than start hour, set date as the next day
             //if endhour is equal to start hour and end minute is less than start minute, set date as the next day
             endDay = DateTime.local().setZone(locale).plus({days: 1}).toFormat("dd")
-            console.log('next Date: ', endDay)
+            //console.log('next Date: ', endDay)
         } else {
             endDay = startDay
         }
@@ -44,8 +44,8 @@ const getStartEndDateTime = (locale, start, end) => {
 
 
 
-    console.log('Start DateTime: ', startDtObj.toISO());
-    console.log('End DateTime: ', endDtObj.toISO());
+    //console.log('Start DateTime: ', startDtObj.toISO());
+    //console.log('End DateTime: ', endDtObj.toISO());
 
     checkDateBetweenTime(locale, startDtObj,endDtObj)
 
@@ -61,19 +61,19 @@ const getStartEndDateTime = (locale, start, end) => {
 const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
     let currentDtObj = DateTime.local().setZone(locale);
     if(currentDtObj >= startDtObj && currentDtObj <= endDtObj){
-        console.log('current date is between start and end time')
+        //console.log('current date is between start and end time')
 
         //set nextDtObj as endDtObj + 1 hour
         let nextDtObj = endDtObj.plus({minutes: 1})
-        console.log('Next DateTime: ', nextDtObj.toISO())
+        //console.log('Next DateTime: ', nextDtObj.toISO())
 
         return nextDtObj
     } else {
-        console.log('current date is not between start and end time')
+        //console.log('current date is not between start and end time')
         
         //set nextDtObj as from now
         let nextDtObj = currentDtObj.plus({minutes: 1})
-        console.log('Next DateTime: ', nextDtObj.toISO())
+        //console.log('Next DateTime: ', nextDtObj.toISO())
 
         return nextDtObj
     }
