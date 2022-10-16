@@ -17,10 +17,11 @@ exports.execute = async (req, res) => {
   
   let dates = dateTime.getStartEndDateTime(data.inArguments[0].TimeZoneOptions,data.inArguments[0].BlackoutStartTime,data.inArguments[0].BlackoutFinishTime),
       startDate = dates.startDtObj.toISO(),
-      endDate = dates.endDtObj.toISO()
+      endDate = dates.endDtObj.toISO(),
+      nextDate = dates.nextDtObj.toISO();
 
   console.log('Start Date Objs: ', startDate, '; End Date Objs',  endDate);
-  
+
   logger.info(data);
 
   try {
@@ -36,7 +37,7 @@ exports.execute = async (req, res) => {
           TimeZone: data.inArguments[0].TimeZoneOptions,
           StartTime: data.inArguments[0].BlackoutStartTime,
           EndTime: data.inArguments[0].BlackoutFinishTime,
-          NextDate: nextDtObj
+          NextDate: nextDate
         },
       },
     ]);
