@@ -64,7 +64,7 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
         }
     }
 
-    let nextDtObj = checkDateBetweenTime
+    let nextDtObj = checkDateBetweenTime(locale,startDtObj,endDtObj)
     console.log('Next Dt Object: ', nextDtObj.toISO());
 
     return { startDtObj, endDtObj, nextDtObj};
