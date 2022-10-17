@@ -15,6 +15,8 @@ const connection = new Postmonger.Session();
 let authTokens = {};
 let payload = {};
 let $form;
+
+//triggers postmonger.js connection requests initialisation
 $(window).ready(onRender);
 
 connection.on('initActivity', initialize);
@@ -79,21 +81,27 @@ function initialize(data) {
 
     validateForm(function($form) {
         buttonSettings.enabled = $form.valid();
+        console.log('Validate Form Function: customActivity.js: ', buttonSettings)
         connection.trigger('updateButton', buttonSettings);
     });
+
+    console.log('initialise function: customActivity.js: ', payload);
 }
 
 /**
- *
+ * Function broadcasted in response to postmonger.js connection.requestToken event
+ * Journey Builder passes back object containing legacy token and Fuel2 token
  *
  * @param {*} tokens
  */
 function onGetTokens(tokens) {
     authTokens = tokens;
+    console.log('onGetTokens function: customActivity.js: ', authTokens)
 }
 
 /**
- *
+ * Function broadcasted in response to postmonger.js connection.requestEndpoints event
+ * Journey Builder passes back object containing REST endpoint payload
  *
  * @param {*} endpoints
  */
@@ -102,6 +110,10 @@ function onGetEndpoints(endpoints) {
 }
 
 /**
+ * Function runs on clickedNext postmonger.js event
+ * If form is valid, updated payload built with form values and connection.trigger('updateActivity') is called
+ * Updates payload called via the initActivity postmonger.js event
+ * 
  * Save settings
  */
 function save() {
@@ -133,7 +145,7 @@ function save() {
                 }
             })
         });
-
+        console.log('save function: customActivity.js: ', payload)
         connection.trigger('updateActivity', payload);
     }
 }
