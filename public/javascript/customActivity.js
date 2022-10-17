@@ -45,9 +45,12 @@ function onRender() {
 }
 
 /**
- * Initialization
- * @param data
- */
+* Function initialises the data input fields with the data from the payload if it exists.
+* If the payload does not exist, the fields are initialised with default values.
+*
+* Initialization
+* @param data //payload passed from Journey Builder app configuration
+*/
 function initialize(data) {
     if (data) {
         payload = data;
