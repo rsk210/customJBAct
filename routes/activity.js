@@ -16,8 +16,8 @@ exports.execute = async (req, res) => {
   const data = JWT(req.body);
   
   let configLocale = data.inArguments[0].TimeZoneOptions,
-  configStartTime = data.inArguments[0].BlackoutStartTime,
-  configFinishTime = data.inArguments[0].BlackoutFinishTime;
+      configStartTime = data.inArguments[0].BlackoutStartTime,
+      configFinishTime = data.inArguments[0].BlackoutFinishTime;
   
   let dates = dateTime.getNextTriggerDate(configLocale,configStartTime,configFinishTime),
       startDate = dates.startDtObj.toISO(),
