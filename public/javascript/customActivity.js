@@ -16,7 +16,7 @@ let authTokens = {};
 let payload = {};
 let $form;
 
-//triggers postmonger.js connection requests initialisation
+//triggers postmonger.js connection request initialisation
 $(window).ready(onRender);
 
 connection.on('initActivity', initialize);
