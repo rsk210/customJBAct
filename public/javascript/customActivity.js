@@ -1,3 +1,5 @@
+const logger = require('../utils/logger');
+
 'use strict';
 
 const validateForm = function(cb) {
@@ -57,6 +59,7 @@ function initialize(data) {
     if (data) {
         payload = data;
     }
+    logger.info('Payload: ', payload);
     const hasInArguments = Boolean(
         payload['arguments'] &&
         payload['arguments'].execute &&
@@ -132,7 +135,6 @@ function save() {
                 id: $(this).attr('id'),
                 value: $(this).val()
             };
-            console.log('PostMonger Object: ', setting)
 
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
                 if($el.attr('type') === 'checkbox') {
@@ -146,7 +148,7 @@ function save() {
                 }
             })
         });
-        console.log('save function: customActivity.js: ', payload)
+
         connection.trigger('updateActivity', payload);
     }
 }
