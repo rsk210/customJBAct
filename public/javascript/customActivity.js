@@ -152,7 +152,6 @@ function save() {
         });
 
         connection.trigger('updateActivity', payload);
-        console.log('UpdateActivity Payload: ', payload);
 
     }
 }
