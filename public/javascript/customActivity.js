@@ -130,6 +130,8 @@ function save() {
             }
         ];
 
+        console.log('Payload Args after Save: ', payload['arguments'].execute.inArguments);
+
         $('.js-activity-setting').each(function () {
             const $el = $(this);
             const setting = {
