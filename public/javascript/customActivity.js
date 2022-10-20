@@ -59,8 +59,6 @@ function initialize(data) {
         payload = data;
     }
 
-    console.log('Init Payload: ', payload);
-
     const hasInArguments = Boolean(
         payload['arguments'] &&
         payload['arguments'].execute &&
@@ -130,7 +128,6 @@ function save() {
             }
         ];
 
-        console.log('Payload Args after Save: ', payload['arguments'].execute.inArguments);
 
         $('.js-activity-setting').each(function () {
             const $el = $(this);
@@ -138,6 +135,8 @@ function save() {
                 id: $(this).attr('id'),
                 value: $(this).val()
             };
+
+            
 
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
                 if($el.attr('type') === 'checkbox') {
@@ -153,5 +152,7 @@ function save() {
         });
 
         connection.trigger('updateActivity', payload);
+        console.log('UpdateActivity Payload: ', payload);
+
     }
 }
