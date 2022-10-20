@@ -1,4 +1,3 @@
-const logger = require('../utils/logger');
 
 'use strict';
 
@@ -59,7 +58,9 @@ function initialize(data) {
     if (data) {
         payload = data;
     }
-    logger.info('Payload: ', payload);
+
+    console.log('Init Payload: ', payload);
+
     const hasInArguments = Boolean(
         payload['arguments'] &&
         payload['arguments'].execute &&
