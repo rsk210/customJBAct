@@ -132,6 +132,7 @@ function save() {
                 id: $(this).attr('id'),
                 value: $(this).val()
             };
+            console.log('PostMonger Object: ', setting)
 
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
                 if($el.attr('type') === 'checkbox') {
