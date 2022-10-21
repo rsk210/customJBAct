@@ -1,4 +1,3 @@
-
 'use strict';
 
 const validateForm = function(cb) {
@@ -87,7 +86,6 @@ function initialize(data) {
         connection.trigger('updateButton', buttonSettings);
     });
 
-    console.log('initialise function: customActivity.js: ', payload);
 }
 
 /**
@@ -98,7 +96,6 @@ function initialize(data) {
  */
 function onGetTokens(tokens) {
     authTokens = tokens;
-    console.log('onGetTokens function: customActivity.js: ', authTokens)
 }
 
 /**
@@ -128,15 +125,12 @@ function save() {
             }
         ];
 
-
         $('.js-activity-setting').each(function () {
             const $el = $(this);
             const setting = {
                 id: $(this).attr('id'),
                 value: $(this).val()
             };
-
-            
 
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
                 if($el.attr('type') === 'checkbox') {
@@ -150,8 +144,6 @@ function save() {
                 }
             })
         });
-
         connection.trigger('updateActivity', payload);
-
     }
 }

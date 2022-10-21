@@ -14,6 +14,7 @@ const dateTime = require('../utils/dateConvert');
 exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);
+  logger.info(data);
   
   let configLocale = data.inArguments[0].TimeZoneOptions,
       configStartTime = data.inArguments[0].BlackoutStartTime,
@@ -25,8 +26,6 @@ exports.execute = async (req, res) => {
       nextDate = dates.nextDtObj.toISO();
 
   console.log('Start Date Objs: ', startDate, '; End Date Objs',  endDate, '; Next Date Objs', nextDate);
-
-  logger.info(data);
 
   try {
     const id = Uuidv1();
@@ -61,7 +60,6 @@ exports.execute = async (req, res) => {
  * @returns {Promise<void>}
  */
 exports.save = async (req, res) => {
-  logger.info('On Save Req Body: ', req)
   res.status(200).send({
     status: 'ok',
   });
