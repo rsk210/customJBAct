@@ -61,7 +61,7 @@ exports.execute = async (req, res) => {
  * @returns {Promise<void>}
  */
 exports.save = async (req, res) => {
-  logger.info('On Save Req Body: ', req.body)
+  logger.info('On Save Req Body: ', req)
   res.status(200).send({
     status: 'ok',
   });
