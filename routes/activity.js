@@ -25,7 +25,7 @@ exports.execute = async (req, res) => {
       endDate = dates.endDtObj.toISO(),
       nextDate = dates.nextDtObj.toISO();
 
-  console.log('Start Date Objs: ', startDate, '; End Date Objs',  endDate, '; Next Date Objs', nextDate);
+      logger.debug('Start Date Objs: ', startDate, '; End Date Objs',  endDate, '; Next Date Objs', nextDate);
 
   try {
     const id = Uuidv1();
@@ -72,6 +72,7 @@ exports.save = async (req, res) => {
  * @param res
  */
 exports.publish = (req, res) => {
+
   res.status(200).send({
     status: 'ok',
   });
@@ -84,8 +85,11 @@ exports.publish = (req, res) => {
  * @param res
  */
 exports.validate = (req, res) => {
-  logger.debug('Journey Validated Successfully');
+  logger.debug('Journey Validated Successfully')
+  console.log('Journey Validated Successfully')
   res.status(200).send({
     status: 'ok',
   });
 };
+
+
