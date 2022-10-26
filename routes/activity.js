@@ -145,6 +145,7 @@ exports.execute = async (req, res) => {
  * @returns {Promise<void>}
  */
 exports.save = async (req, res) => {
+  logger.debug('Journey Saved Successfully');
   res.status(200).send({
     status: 'ok',
   });
