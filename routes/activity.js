@@ -156,6 +156,7 @@ exports.save = async (req, res) => {
  * @param res
  */
 exports.publish = (req, res) => {
+  console.log('Journey Saved')
   res.status(200).send({
     status: 'ok',
   });
@@ -169,12 +170,9 @@ exports.publish = (req, res) => {
  */
 exports.validate = (req, res) => {
   logger.debug('Journey Validated Successfully')
+  console.log('Journey Validated')
   res.status(200).send({
     status: 'ok',
   });
 };
 
-  res.status(200).send({
-    status: 'ok',
-  });
-};
