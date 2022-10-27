@@ -56,6 +56,8 @@ function onRender() {
 function initialize(data) {
     if (data) {
         payload = data;
+        logger.debug("Payload :" , payload );
+
     }
 
     const hasInArguments = Boolean(
