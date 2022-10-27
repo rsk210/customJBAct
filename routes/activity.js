@@ -45,6 +45,7 @@ exports.execute = async (req, res) => {
       },
     ]);
   } catch (error) {
+    logger.debug("Errored")
     logger.error(error);
   }
 
